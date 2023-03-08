@@ -1,55 +1,98 @@
-function getState({ getStore, getActions, setStore }) {
+import { element } from "prop-types";
+
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			urlBase: "https://www.swapi.tech/api/",
-
-			characters: [],
+			urlBase: "https://swapi.tech/api/",
+			people: [],
 			planets: [],
+			favorites: [],
+			vehicle: [],
 		},
 		actions: {
-			getCharacters: async () => {
+			getStarWarsCharacters: async () => {
 				try {
-					const store = getStore();
-					const response = await fetch(`${store.urlBase}/people`);
-					if (!response.ok) {
-						return;
-					}
-					const data = await response.json();
-					data.results.map(async (person) => {
-						const response = await fetch(person.url);
+					let response = await fetch(`${getStore().urlBase}/people/`);
+					let data = await response.json();
+					data.results.forEach(async (element) => {
+						try {
+							let response2 = await fetch(element.url);
+							let data2 = await response2.json();
 
-						const personData = await response.json();
-						setStore({
-							characters: [...store.characters, personData],
-						});
+							setStore({
+								...getStore(),
+								people: [...getStore().people, data2.result],
+							});
+						} catch (error) {
+							console.log(error);
+						}
 					});
 				} catch (error) {
-					console.log(error);
+					console.log(`${error}error`);
 				}
 			},
-			getPlanets: async () => {
+			getStarWarsPlanets: async () => {
 				try {
-					const store = getStore();
-					const response = await fetch(`${store.urlBase}/planets`);
-					if (!response.ok) {
-						return;
-					}
-					const data = await response.json();
-					data.results.map(async (planet) => {
-						const response = await fetch(planet.url);
-						const planetData = await response.json();
-						setStore({
-							planets: [...store.planets, planetData],
-						});
-						console.log(planetData);
+					let response = await fetch(`${getStore().urlBase}/planets/`);
+					let data = await response.json();
+
+					data.results.forEach(async (element) => {
+						try {
+							let response = await fetch(element.url);
+							let data2 = await response.json();
+
+							setStore({
+								...getStore(),
+								planets: [...getStore().planets, data2.result],
+							});
+						} catch (error) {
+							`${error}error`;
+						}
 					});
 				} catch (error) {
-					console.log(error);
+					console.log(`${error}error`);
 				}
+			},
+
+			getStarWarsVehicle: async () => {
+				try {
+					let response = await fetch(`${getStore().urlBase}/vehicle`);
+					let data = await response.json();
+					data.results.forEach(async (element) => {
+						try {
+							let response = await fetch(element.url);
+							let data2 = await response.json();
+
+							setStore({
+								...getStore(),
+								vehicle: [...getStore().vehicle, data2.result],
+							});
+						} catch {
+							`${error} error`;
+						}
+					});
+				} catch (error) {
+					console.log(`${error}error`);
+				}
+			},
+
+			addCard: (favorites) => {
+				let fav = getStore().favorites.some(
+					(item) => item._id == favorites._id
+				);
+				if (!fav) {
+					setStore({
+						favorites: [...getStore().favorites, favorites],
+					});
+				}
+			},
+
+			delFavorito: (id) => {
+				let delFavorito = getStore().favorites.filter((item) => item._id != id);
+				setStore({ favorites: delFavorito });
 			},
 		},
 	};
-}
-  
-  export default getState;
+};
 
+export default getState;

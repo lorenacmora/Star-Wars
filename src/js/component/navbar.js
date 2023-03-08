@@ -1,32 +1,50 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import { Favorites } from "./Favorites";
-
-/* Falta arreglar el compoennte Favorites para agregar cada item a los favoritos del dropdown*/
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	return (
-		<div className="container-flex">
-			<nav className="navbar navbar-black bg-black mb-3">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1280px-Star_Wars_Logo.svg.png" width="100" height="80" />
-					</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-					<div className="btn-group">
-						<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							Favorites <span className="badge bg-secondary">0</span>
-						</button>
-						<ul className="dropdown-menu">
-							<li>some item here</li>
-						</ul>
-					</div>
-					</Link>
-				</div>
-			</nav>
-		</div>
-	);
-};
+  const { store, actions } = useContext(Context);
+  
+  return (
+    <nav className="navbar navbar-dark bg-dark mb-3 ">
+      <Link to="/">
+        <img
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allocine.fr%2Farticle%2Ffichearticle_gen_carticle%3D18637936.html&psig=AOvVaw1D1G3PssCBAtZknytpc43m&ust=1678396907220000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPijp-yhzf0CFQAAAAAdAAAAABAb" height={50} width={60}
+          " />
+      </Link>
+      <div className="ml-auto ">
+        <div className="dropdown ">
+          <button
+            className="btn btn-primary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Favorites{" "}
+            <span className="badge bg-secondary">{store.favorites.length}</span>
+          </button>
+          <ul className="dropdown-menu dropdown-menu-end">
+            {store.favorites.length ? (
+              store.favorites.map((item) => {
+                return (
+                  <li key={item._id}>
+                    <a className="dropdown-item" href="#">
+                      {item.properties.nombre}
 
+                      <i
+                        className="fas fa-trash-alt mx-3"
+                        onClick={() => actions.delFavorito(item._id)}
+                      ></i>
+                    </a>
+                  </li>
+                );
+              })
+            ) : (
+              <li className="dropdown-item text-center">"Empty"</li>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};

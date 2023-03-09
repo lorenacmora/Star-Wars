@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import ImageUrl from "../../img/starwars.png";
+
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   // const [fav, setFav] = useState([]);
 
   return (
-    <nav className="navbar navbar-dark bg-dark mb-5 ">
+    <nav className="navbar navbar-black bg-black mb-5 ">
       <Link to="/">
-        <img
-          className="logo"
-          src="https://es.m.wikipedia.org/wiki/Archivo:Star_Wars_Logo.svg" height={40} width={60}
-        />
+      <img src="starwars.png"/>
       </Link>
       <div className="ml-auto ">
         <div className="dropdown ">
@@ -31,7 +30,7 @@ export const Navbar = () => {
                 return (
                   <li key={item._id}>
                     <a className="dropdown-item" href="#">
-                      {item.properties.nombre}
+                      {item.properties.name}
 
                       <i
                         className="fas fa-trash-alt mx-3"

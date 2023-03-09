@@ -37,7 +37,7 @@ const Characterdetails = (item) => {
                 </div>
                 <div className="col-sm-6">
                   <div className="card-body">
-                    <h5 className="card-title">{`Nombre: ${description?.properties?.nombre}`}</h5>
+                    <h5 className="card-title">{`Name: ${description?.properties?.name}`}</h5>
                     <p className="card-text">
                       <strong>
                         {`Manufacturer: ${description?.properties?.manufacturer}`}
@@ -68,7 +68,7 @@ const Characterdetails = (item) => {
                 </div>
                 <div className="col-sm-6">
                   <div className="card-body">
-                    <h5 className="card-title">{`Nombre: ${description?.properties?.nombre}`}</h5>
+                    <h5 className="card-title">{`Name: ${description?.properties?.name}`}</h5>
                     <p className="card-text">
                       <strong>{`Height: ${description?.properties?.height}`}</strong>
                     </p>
@@ -100,7 +100,7 @@ const Characterdetails = (item) => {
                 </div>
                 <div className="col-sm-6">
                   <div className="card-body">
-                    <h5 className="card-title">{`Nombre: ${description?.properties?.nombre}`}</h5>
+                    <h5 className="card-title">{`Name: ${description?.properties?.name}`}</h5>
                     <p className="card-text">
                       <strong>{`Polulation: ${description?.properties?.poblacion}`}</strong>
                     </p>

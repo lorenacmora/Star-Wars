@@ -22,7 +22,7 @@ export const CardPlanets = (props) => {
               }
             />
             <div className="card-body">
-              <h5 className="card-title">{`Nombre: ${item.properties.nombre}`}</h5>
+              <h5 className="card-title">{`Name: ${item.properties.name}`}</h5>
               <p className="card-text">{`Poblacion: ${item.properties.pobacion}`}</p>
               <p className="card-text">{`Gravity: ${item.properties.gravity}`}</p>
               <p className="card-text">{`Clima: ${item.properties.clima}`}</p>
@@ -41,7 +41,7 @@ export const CardPlanets = (props) => {
                  
                   onClick={() => {
                     {
-                      actions.addCard(item, nombre);
+                      actions.addCard(item, name);
                     }
                   }}
                 >

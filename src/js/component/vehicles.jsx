@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Vehicles = (props) => {
   const { store, actions } = useContext(Context);
   const { vehicles } = store;
-  const { tipo, nombre } = props;
+  const { tipo, name } = props;
 
   return (
     <>
@@ -18,7 +18,7 @@ export const Vehicles = (props) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">{`Nombre: ${item.properties.nombre}`}</h5>
+              <h5 className="card-title">{`Name: ${item.properties.name}`}</h5>
               <p className="card-text">{`Model: ${item.properties.model}`}</p>
               <p className="card-text">{`Capacity: ${item.properties.cargo_capacity}`}</p>
               <p className="card-text">{`Description: ${item.description}`}</p>
@@ -37,7 +37,7 @@ export const Vehicles = (props) => {
                   // data-bs-toggle="button"
                   onClick={() => {
                     {
-                      actions.addCard(item, nombre);
+                      actions.addCard(item, name);
                     }
                   }}
                 >

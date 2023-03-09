@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import "../../styles/index.css";
 
 export const CardCharacters = (props) => {
-  const { tipo, nombre } = props;
+  const { tipo, name } = props;
   const { store, actions } = useContext(Context);
   const { people } = store;
   const [active, setActive] = useState(false);
@@ -20,7 +20,7 @@ export const CardCharacters = (props) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">{`Nombre: ${item.properties.nombre}`}</h5>
+              <h5 className="card-title">{`Name: ${item.properties.name}`}</h5>
               <p className="card-text">{`Gender: ${item.properties.gender}`}</p>
               <p className="card-text">{`Hair color: ${item.properties.hair_color}`}</p>
               <p className="card-text">{`Eye color: ${item.properties.eye_color}`}</p>
@@ -39,7 +39,7 @@ export const CardCharacters = (props) => {
                   // data-bs-toggle="button"
                   onClick={() => {
                     {
-                      actions.addCard(item, nombre);
+                      actions.addCard(item, name);
                     }
                   }}
                 >

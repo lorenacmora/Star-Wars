@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/index.css";
 
-export const CharactersCard = (props) => {
+export const CardCharacters = (props) => {
   const { tipo, nombre } = props;
   const { store, actions } = useContext(Context);
   const { people } = store;
@@ -20,7 +20,7 @@ export const CharactersCard = (props) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">{`Nombre: ${item.properties.name}`}</h5>
+              <h5 className="card-title">{`Nombre: ${item.properties.nombre}`}</h5>
               <p className="card-text">{`Gender: ${item.properties.gender}`}</p>
               <p className="card-text">{`Hair color: ${item.properties.hair_color}`}</p>
               <p className="card-text">{`Eye color: ${item.properties.eye_color}`}</p>

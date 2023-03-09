@@ -1,15 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
-
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
-
 import Details from "./component/details.jsx";
+import { Vehicles } from "./component/vehicles.jsx";
 
 //create your first component
 const Layout = () => {
@@ -26,7 +23,7 @@ const Layout = () => {
             <Route path="/" element={<Home />} />
 
             <Route path="/single/:theid" element={<Single />} />
-            <Route path="/:details/:theId" element={<Details />} />
+            <Route path="/:details/:theid" element={<Details />} />
             <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>

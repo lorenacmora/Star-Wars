@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			planets: [],
 			favorites: [],
-			vehicle: [],
+			vehicles: [],
 		},
 		actions: {
 			getStarWarsCharacters: async () => {
@@ -54,9 +54,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getStarWarsVehicle: async () => {
+			getStarWarsVehicles: async () => {
 				try {
-					let response = await fetch(`${getStore().urlBase}/vehicle`);
+					let response = await fetch(`${getStore().urlBase}/vehicles`);
 					let data = await response.json();
 					data.results.forEach(async (element) => {
 						try {
@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 							setStore({
 								...getStore(),
-								vehicle: [...getStore().vehicle, data2.result],
+								vehicles: [...getStore().vehicles, data2.result],
 							});
 						} catch {
 							`${error} error`;
@@ -87,9 +87,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			delFavorito: (id) => {
-				let delFavorito = getStore().favorites.filter((item) => item._id != id);
-				setStore({ favorites: delFavorito });
+			masFav: (id) => {
+				let masFav = getStore().favorites.filter((item) => item._id != id);
+				setStore({ favorites: masFav });
 			},
 		},
 	};

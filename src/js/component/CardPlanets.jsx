@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
-export const PlanetCard = (props) => {
+export const CardPlanets = (props) => {
   const { store, actions } = useContext(Context);
   const { planets } = store;
   const { tipo } = props;
@@ -23,7 +23,7 @@ export const PlanetCard = (props) => {
             />
             <div className="card-body">
               <h5 className="card-title">{`Nombre: ${item.properties.nombre}`}</h5>
-              <p className="card-text">{`Poblacion: ${item.properties.poblacion}`}</p>
+              <p className="card-text">{`Poblacion: ${item.properties.pobacion}`}</p>
               <p className="card-text">{`Gravity: ${item.properties.gravity}`}</p>
               <p className="card-text">{`Clima: ${item.properties.clima}`}</p>
               <div className="div">
@@ -38,7 +38,7 @@ export const PlanetCard = (props) => {
                       : "btn-outline-warning"
                   }
                   `}
-                  // data-bs-toggle="button"
+                 
                   onClick={() => {
                     {
                       actions.addCard(item, nombre);

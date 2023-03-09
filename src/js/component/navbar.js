@@ -4,13 +4,15 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  
+  // const [fav, setFav] = useState([]);
+
   return (
-    <nav className="navbar navbar-dark bg-dark mb-3 ">
+    <nav className="navbar navbar-dark bg-dark mb-5 ">
       <Link to="/">
         <img
-          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allocine.fr%2Farticle%2Ffichearticle_gen_carticle%3D18637936.html&psig=AOvVaw1D1G3PssCBAtZknytpc43m&ust=1678396907220000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPijp-yhzf0CFQAAAAAdAAAAABAb" height={50} width={60}
-           />
+          className="logo"
+          src="https://es.m.wikipedia.org/wiki/Archivo:Star_Wars_Logo.svg" height={40} width={60}
+        />
       </Link>
       <div className="ml-auto ">
         <div className="dropdown ">
@@ -33,7 +35,7 @@ export const Navbar = () => {
 
                       <i
                         className="fas fa-trash-alt mx-3"
-                        onClick={() => actions.delFavorito(item._id)}
+                        onClick={() => actions.masFav(item._id)}
                       ></i>
                     </a>
                   </li>

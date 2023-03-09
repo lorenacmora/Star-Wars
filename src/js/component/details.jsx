@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-const CharactersDetails = (item) => {
+const Characterdetails = (item) => {
   const { store, actions } = useContext(Context);
   const { planets, people } = store;
   const params = useParams();
 
   const [description, setDescription] = useState([]);
 
-  const getCharactersDetails = () => {
-    const ObtenerDetalles = store[params.details].find(
+  const getCharacterDetails = () => {
+    const ObtainingDetails = store[params.details].find(
       (element) => element._id === params.theId
     );
-    setDescription(ObtenerDetalles);
+    setDescription(ObtainingDetails);
   };
 
   useEffect(() => {
-    getCharactersDetails();
+    getCharacterDetails();
   }, [people]);
 
   return (
@@ -68,7 +68,7 @@ const CharactersDetails = (item) => {
                 </div>
                 <div className="col-sm-6">
                   <div className="card-body">
-                    <h5 className="card-title">{`Name: ${description?.properties?.name}`}</h5>
+                    <h5 className="card-title">{`Nombre: ${description?.properties?.nombre}`}</h5>
                     <p className="card-text">
                       <strong>{`Height: ${description?.properties?.height}`}</strong>
                     </p>
@@ -102,7 +102,7 @@ const CharactersDetails = (item) => {
                   <div className="card-body">
                     <h5 className="card-title">{`Nombre: ${description?.properties?.nombre}`}</h5>
                     <p className="card-text">
-                      <strong>{`Poblacion: ${description?.properties?.poblacion}`}</strong>
+                      <strong>{`Polulation: ${description?.properties?.poblacion}`}</strong>
                     </p>
                     <p className="card-text">
                       <strong>{`Rotation period: ${description?.properties?.rotation_period}`}</strong>
@@ -124,4 +124,4 @@ const CharactersDetails = (item) => {
   );
 };
 
-export default CharactersDetails;
+export default Characterdetails;

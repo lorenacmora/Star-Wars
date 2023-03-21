@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Vehicles = (props) => {
   const { store, actions } = useContext(Context);
   const { vehicles } = store;
-  const { tipo, name } = props;
+  const { nature, name } = props;
 
   return (
     <>
@@ -23,7 +23,7 @@ export const Vehicles = (props) => {
               <p className="card-text">{`Capacity: ${item.properties.cargo_capacity}`}</p>
               <p className="card-text">{`Description: ${item.description}`}</p>
               <div className="div">
-                <Link to={`/${tipo}/${item._id}`} className="btn btn-primary">
+                <Link to={`/${nature}/${item._id}`} className="btn btn-primary">
                   Learn more!
                 </Link>
                 <button

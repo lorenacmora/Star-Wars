@@ -4,7 +4,8 @@ import { Context } from "../store/appContext";
 import "../../styles/index.css";
 
 export const CardCharacters = (props) => {
-  const { tipo, name } = props;
+  const { nature, name } = props;
+  console.log(props)
   const { store, actions } = useContext(Context);
   const { people } = store;
   const [active, setActive] = useState(false);
@@ -25,7 +26,7 @@ export const CardCharacters = (props) => {
               <p className="card-text">{`Hair color: ${item.properties.hair_color}`}</p>
               <p className="card-text">{`Eye color: ${item.properties.eye_color}`}</p>
               <div className="div">
-                <Link to={`/${tipo}/${item._id}`} className="btn btn-primary">
+                <Link to={`/${nature}/${item._id}`} className="btn btn-primary">
                   Learn more!
                 </Link>
                 <button

@@ -11,7 +11,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-black bg-black mb-5 ">
       <Link to="/">
-      <img src="starwars.png"/>
+      <img src={ImageUrl}/>
       </Link>
       <div className="ml-auto ">
         <div className="dropdown ">

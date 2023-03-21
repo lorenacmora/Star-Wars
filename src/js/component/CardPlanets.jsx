@@ -5,7 +5,7 @@ import { Context } from "../store/appContext.js";
 export const CardPlanets = (props) => {
   const { store, actions } = useContext(Context);
   const { planets } = store;
-  const { tipo } = props;
+  const { nature, name } = props;
 
   return (
     <>
@@ -23,11 +23,11 @@ export const CardPlanets = (props) => {
             />
             <div className="card-body">
               <h5 className="card-title">{`Name: ${item.properties.name}`}</h5>
-              <p className="card-text">{`Poblacion: ${item.properties.pobacion}`}</p>
+              <p className="card-text">{`Poblacion: ${item.properties.poblacion}`}</p>
               <p className="card-text">{`Gravity: ${item.properties.gravity}`}</p>
               <p className="card-text">{`Clima: ${item.properties.clima}`}</p>
               <div className="div">
-                <Link to={`/${tipo}/${item._id}`} className="btn btn-primary">
+                <Link to={`/${nature}/${item._id}`} className="btn btn-primary">
                   Learn more!
                 </Link>
                 <button

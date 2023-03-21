@@ -7,16 +7,18 @@ const Characterdetails = (item) => {
   const { store, actions } = useContext(Context);
   const { planets, people } = store;
   const params = useParams();
+  console.log(store[params.details])
+  console.log(params)
 
   const [description, setDescription] = useState([]);
 
   const getCharacterDetails = () => {
     const ObtainingDetails = store[params.details].find(
-      (element) => element._id === params.theId
+      (element) => element._id === params.theid
     );
     setDescription(ObtainingDetails);
   };
-
+console.log(description?.properties)
   useEffect(() => {
     getCharacterDetails();
   }, [people]);
@@ -26,7 +28,7 @@ const Characterdetails = (item) => {
       <div className="container">
         <div className="card">
           <div className="row">
-            {description?.properties?.vehicle_class ? (
+            {params?.details=="vehicles" ? (
               <>
                 <div className="col-sm-6">
                   <img
@@ -57,7 +59,7 @@ const Characterdetails = (item) => {
                 </div>
               </>
             ) : null}
-            {description?.properties?.birth_year ? (
+            {params?.details=="people" ? (
               <>
                 <div className="col-sm-6">
                   <img
@@ -85,7 +87,7 @@ const Characterdetails = (item) => {
                 </div>
               </>
             ) : null}
-            {description?.properties?.diametro ? (
+            {params?.details=="planets" ? (
               <>
                 <div className="col-sm-6">
                   <img
@@ -102,7 +104,7 @@ const Characterdetails = (item) => {
                   <div className="card-body">
                     <h5 className="card-title">{`Name: ${description?.properties?.name}`}</h5>
                     <p className="card-text">
-                      <strong>{`Polulation: ${description?.properties?.poblacion}`}</strong>
+                      <strong>{`Poblacion: ${description?.properties?.poblacion}`}</strong>
                     </p>
                     <p className="card-text">
                       <strong>{`Rotation period: ${description?.properties?.rotation_period}`}</strong>

@@ -19,14 +19,14 @@ export const Home = () => {
         <div className="container">
           <h1>Planets</h1>
           <div className="home-card-list">
-            <CardPlanets tipo="planets" item="name" />
+            <CardPlanets nature="planets" item="name" />
           </div>
         </div>
 
         <div className="container">
           <h1>Vehicles</h1>
           <div className="home-card-list">
-            <Vehicles tipo="vehicles" item="name" />
+            <Vehicles nature="vehicles" item="name" />
           </div>
         </div>
       </div>

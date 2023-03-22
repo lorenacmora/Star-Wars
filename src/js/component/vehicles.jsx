@@ -8,7 +8,8 @@ export const Vehicles = (props) => {
   const { nature, name } = props;
 
   return (
-    <>
+    <div className="carousel">
+      <div className="characters d-flex">
       {vehicles.map((item) => {
         return (
           <div key={item._id} className="card ">
@@ -52,6 +53,7 @@ export const Vehicles = (props) => {
           </div>
         );
       })}
-    </>
+    </div>
+    </div>
   );
 };

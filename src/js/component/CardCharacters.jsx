@@ -11,7 +11,9 @@ export const CardCharacters = (props) => {
   const [active, setActive] = useState(false);
 
   return (
-    <>
+    
+    <div className="carousel">
+      <div className="characters d-flex">
       {people.map((item) => {
         return (
           <div key={item._id} className="card ">
@@ -51,6 +53,7 @@ export const CardCharacters = (props) => {
           </div>
         );
       })}
-    </>
-  );
+      </div>
+      </div>
+    );
 };
